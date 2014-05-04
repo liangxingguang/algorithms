@@ -76,3 +76,4 @@ int NodeDataCmp2 ( void *first, void *second )
 	return (strcmp ( ((pND2) first)->word,
 				((pND2) second)->word));
 }
+
