@@ -178,6 +178,7 @@ Link FindNode( struct List *L, void *nd )
 	return NULL;
 }
 
+
 Link FindNodeAscend ( struct List *L, void *nd )
 {
 	Link pcurr;
