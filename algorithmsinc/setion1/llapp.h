@@ -17,6 +17,7 @@ struct NodeData2{
 	char *word;
 };
 
+
 typedef struct NodeData2 * pND2;
 
 extern void *	CreateData2 ( void * );
