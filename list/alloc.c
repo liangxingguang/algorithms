@@ -3,7 +3,8 @@
  *
  *       Filename:  alloc.c
  *
- *    Description:  
+ *    Description: copy from cloudwu github 
+
  *
  *        Version:  1.0
  *        Created:  2015年11月15日 16时01分58秒

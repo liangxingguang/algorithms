@@ -3,7 +3,7 @@
  *
  *       Filename:  cstring.c
  *
- *    Description:  
+ *    Description:  copy from  cloudwu cstring github 
  *
  *        Version:  1.0
  *        Created:  2015年11月09日 23时29分15秒
