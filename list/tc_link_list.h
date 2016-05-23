@@ -55,6 +55,5 @@ inline p_link_node link_list_pop_frist(link_list *l);
 inline p_link_node link_list_pop_tail(link_list *l);
 inline p_link_node link_list_get_next(link_list *l, p_link_node p);
 inline bool link_list_is_empty(link_list *l);
-
 #endif
 
