@@ -87,5 +87,109 @@ link_list_append(link_list *l, p_link_node p) {
 
 }
 
+void
+link_list_append_by_order(link_list *l, p_link_node p) {
+    p_link_node node, next;
 
+    //当链表不为空
+    if (l->size > 0){
+        node = l->head.prev;
+        next = node->next;
+        while (node->data != NULL && after(node->key, p->key)) {
+            next = node;
+            node = node->prev;
+        }
+        node->next = p;
+        p->prev = node;
+        next->prev = p;
+        p->next = next;
+        l->size++;
+    } else {
+        link_list_append(l, p);
+    }
+}
+
+/* 
+ *--------------
+ *-prev - data - 
+  --------------
+ * */
+inline void
+link_list_push(link_list *l, p_link_node p) {
+    p_link_node node;
+
+    node = l->head.next;
+    node->prev = p;
+    p->next = node;
+    l->head.next = p;
+    p->prev = &(l->head);
+    l->size++;
+}
+
+inline p_link_node
+link_list_remove(link_list *l, p_link_node node) {
+    p_link_node next, prev;
+    next = node->next;
+    prev = node->prev;
+    next->prev = prev;
+    prev->next = next;
+    l->size--;
+    return node;
+}
+
+inline p_link_node
+link_list_first(link_list *l) {
+    if (l->head.next == &(l->head)) {
+        return NULL;
+    }
+    return l->head.next;
+}
+
+inline p_link_node
+link_list_tail(link_list *l) {
+    if (l->head.next == &(l->head)) {
+        return NULL;
+    }
+    return l->head.prev;
+}
+
+inline p_link_node
+link_list_pop_first(link_list *l) {
+    p_link_node first = link_list_first(l);
+    
+    if (!first) {
+        return first;
+    }
+
+    return link_list_remove(l, first);
+}
+
+inline p_link_node
+link_list_pop_tail(link_list *l) {
+    p_link_node tail = link_list_tail(l);
+
+    if (!tail) {
+        return tail;
+    }
+
+    return link_list_remove(l, tail);
+}
+
+inline p_link_node
+link_list_get_next(link_list *l, p_link_node p) {
+    if (p->next == &(l->head)) {
+        return NULL;
+    }
+
+    return p->next;
+}
+
+inline bool
+link_list_is_empty(link_list *l) {
+    if (l->head.next == &(l->head)) {
+        return true;
+    }
+
+    return false;
+}
 
